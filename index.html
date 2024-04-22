@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="icon" type="image/svg" href="pizza-hut-1.svg" sizes="64x64">
+  <title>Pizza Hut</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="container card wrapper">
+    <h1>Pizza Hut</h1>
+    <div class="row ">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="width: 16rem;">
+              <img src="Combo Hut Cheese.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/42.00</span></h4>
+              <button class="btn btn-info" id="btnHutCheese"><i class="fas fa-plus"></i> Combo Hut Cheese </button>
+            </div>
+            <div class="card" style="width: 16rem;">
+              <img src="Hut Pack Familiar.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/55.00</span></h4>
+              <button class="btn btn-info" id="btnHutFamiliar"><i class="fas fa-plus"></i> Hut Pack Familiar</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 16rem;">
+              <img src="Pack Familiar.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/28.00</span></h4>
+              <button class="btn btn-info" id="btnPackFamiliar"><i class="fas fa-plus"></i> Pack Familiar</button>
+            </div>
+            <div class="card" style="width: 16rem;">
+              <img src="Hut Combo Mediano.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/34.00</span></h4>
+              <button class="btn btn-info" id="btnHutComboMediano"><i class="fas fa-plus"></i> Hut Combo
+                Mediano</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h5>Adicionales</h5>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="width: 16rem;">
+              <img src="Salsa mediterranea.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/3.00</span></h4>
+              <button class="btn btn-dark">Salsa mediterranea</button>
+            </div>
+            <div class="card" style="width: 16rem;">
+              <img src="Volcan de chocolate.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/6.00</span></h4>
+              <button class="btn btn-dark">Volcan de chocolate</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 16rem;">
+              <img src="Coca cola 1.5Lt.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/10.00</span></h4>
+              <button class="btn btn-dark"> Coca cola 1.5Lt</button>
+            </div>
+            <div class="card" style="width: 16rem;">
+              <img src="Inca Kola 1.5Lt.jpg" class="card-img-top" alt="..." width="60" height="150">
+              <h4><span class="badge badge-secondary">S/10.00</span></h4>
+              <button class="btn btn-dark">Inca Kola 1.5Lt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 ">
+        <h6>Productos: </h6>
+        <div class="products" id="listProduct">
+
+        </div>
+        <p id="total">Total: S/0.00</p>
+        <div class="row">
+          <div class="col-4" data-toggle="modal" data-target="#exampleModal">
+            <button class="btn btn-primary btn-block" id="btnRegistros">
+              <i class="fas fa-clipboard-list"></i>
+              Registros
+            </button>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-success btn-block" data-toggle="modal" data-target="#modalAceptar" id="btnAgregar">
+              <i class="fas fa-check"></i>
+              Aceptar
+            </button>
+
+            <div class="modal fade" id="modalAceptar" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="alert alert-success" role="alert">
+                  Se ha agregado la orden
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-danger btn-block" id="btnLimpiar">
+              <i class="fas fa-trash"></i>
+              Limpiar
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 " id="contenido" style="display: none; justify-content:center;flex-direction: column;">
+      <div class="row" style="display:flex; align-items:center;flex-direction: column;">
+        <h5>Pizza Hut</h5>
+        <p>Av.Emancipacion N° 452138</p>
+        <p id="Fecha"></p>
+      </div>
+      <div class="row">
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Subtotal (S/)</th>
+            </tr>
+          </thead>
+          <tbody id="listaCards">
+            <tr>
+
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Gracias por su preferencia.</td>
+              <td>Total: S/ <p id="ITotal"></p>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <template>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Venta</h5>
+              <div class="row">
+                <button type="button" class="btn btn-primary">
+                  Total <span class="badge badge-light">S/0.00</span>
+                </button>
+                <button class="btn btn-info" onclick='verDetalle(this)' data-toggle="modal"
+                  data-target="#modalDetalles"><i class="fas fa-info-circle"></i> Detalles </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template id="templateItemProducto">
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <img src="" alt="..." height="120" width="120">
+          </div>
+          <div class="col-md-7">
+            <h5 class="card-title">Combo</h5>
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="button" id="btnSalsa" onclick='agregarSalsaMediterranea(this);'
+                  class="btn btn-primary btn-block btn-sm">
+                  <i class="fas fa-plus"></i>
+                  Salsa <span class="badge badge-light" id="Moka">0</span>
+                </button>
+                <button type="button" id="btnCocaCola" onclick='agregarCocaCola(this);'
+                  class="btn btn-primary btn-block btn-sm">
+                  <i class="fas fa-plus"></i>
+                  Coca Cola <span class="badge badge-light" id="Crema">0</span>
+                </button>
+              </div>
+              <div class="col-sm-6">
+                <button type="button" id="btnVolcanChocolate" onclick='agregarVolcanDeChocolate(this);'
+                  class="btn btn-primary btn-block btn-sm">
+                  <i class="fas fa-plus"></i>
+                  V.Chocolate <span class="badge badge-light" id="VolcanDeChocolate">0</span>
+                </button>
+                <button type="button" id="btnIncaKola" onclick='agregarIncaKola(this);'
+                  class="btn btn-primary btn-block btn-sm">
+                  <i class="fas fa-plus"></i>
+                  Inca Kola <span class="badge badge-light" id="IncaKola">0</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" id="subtotal" class="btn btn-danger btn-block btn-sm">
+              S/ ${combo.Costo().toFixed(2)}
+            </button>
+            <button type="button" onclick='quitarItem(this);' class="btn btn-danger btn-block btn-sm">
+              <i class="fas fa-times"></i>
+              Quitar
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <div class="modal fade mdVentas" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ventas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="listVentas">
+
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalDetalles" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="listItemDetalle">
+
+        </div>
+        <div class="modal-footer" style="display:flex; flex-direction: column; " >
+          <div class="row">
+            <label for="" id="detalleTotal"></label>
+          </div>
+          <div class="row" style="display:flex; flex-direction: row; ">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+            <a class="btn btn-primary" id="btnImprimir"> <i class="fas fa-print"></i> Imprimir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/c4bffc6090.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
